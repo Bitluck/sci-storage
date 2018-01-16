@@ -18,15 +18,15 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private Timestamp reigisterDate;
+    private Timestamp registerDate;
 
-    public User(int id, String email, String password, String firstName, String lastName, Timestamp reigisterDate) {
+    public User(int id, String email, String password, String firstName, String lastName, Timestamp registerDate) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.reigisterDate = reigisterDate;
+        this.registerDate = registerDate;
     }
 
     public int getId() {
@@ -69,12 +69,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Timestamp getReigisterDate() {
-        return reigisterDate;
+    public Timestamp getRegisterDate() {
+        return registerDate;
     }
 
-    public void setReigisterDate(Timestamp reigisterDate) {
-        this.reigisterDate = reigisterDate;
+    public void setRegisterDate(Timestamp registerDate) {
+        this.registerDate = registerDate;
     }
 
     @Override
@@ -85,7 +85,7 @@ public class User {
         hash = 59 * hash + Objects.hashCode(this.password);
         hash = 59 * hash + Objects.hashCode(this.firstName);
         hash = 59 * hash + Objects.hashCode(this.lastName);
-        hash = 59 * hash + Objects.hashCode(this.reigisterDate);
+        hash = 59 * hash + Objects.hashCode(this.registerDate);
         return hash;
     }
 
@@ -116,7 +116,7 @@ public class User {
         if (!Objects.equals(this.lastName, other.lastName)) {
             return false;
         }
-        if (!Objects.equals(this.reigisterDate, other.reigisterDate)) {
+        if (!Objects.equals(this.registerDate, other.registerDate)) {
             return false;
         }
         return true;
@@ -124,6 +124,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName + ", reigisterDate=" + reigisterDate + '}';
+        return "User{" + "id=" + id + ", email=" + email + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName + ", registerDate=" + registerDate + '}';
     }
 }
