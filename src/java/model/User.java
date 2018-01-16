@@ -20,6 +20,9 @@ public class User {
     private String lastName;
     private Timestamp registerDate;
 
+    public User() {
+    }
+
     public User(int id, String email, String password, String firstName, String lastName, Timestamp registerDate) {
         this.id = id;
         this.email = email;
