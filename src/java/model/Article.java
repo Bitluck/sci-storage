@@ -19,6 +19,9 @@ public class Article {
     private Timestamp uploadDate;
     private User owner;
 
+    public Article() {
+    }
+    
     public Article(int id, String title, String authors, Timestamp uploadDate, User owner) {
         this.id = id;
         this.title = title;
