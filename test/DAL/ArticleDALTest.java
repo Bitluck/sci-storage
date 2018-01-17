@@ -85,8 +85,8 @@ public class ArticleDALTest {
     public void testSelectByCategory() {
         int category = 0;
         ArticleDAL instance = new ArticleDAL();
-        Article expResult = null;
-        Article result = instance.selectByCategory(category);
+        List<Article> expResult = new ArrayList<>();
+        List<Article> result = instance.selectByCategory(category);
         assertEquals(expResult, result);
     }
 
