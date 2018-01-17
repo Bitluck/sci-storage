@@ -22,16 +22,16 @@
         select * from sc_category;
     </select>
     
-    <delete id = "delete" parameterType = "Category"> 
+    <delete id = "delete" parameterType = "model.Category"> 
         DELETE from sc_category WHERE C_ID = #{id}; 
     </delete> 
 
-    <insert id = "insert" parameterType = "Category"> 
+    <insert id = "insert" parameterType = "model.Category"> 
        INSERT INTO sc_category (c_name, c_description)
             VALUES (#{name}, #{description});
     </insert> 
 
-    <update id = "update" parameterType = "User"> 
+    <update id = "update" parameterType = "model.Category"> 
         UPDATE sc_category SET
           c_name = #{name}, 
           c_description = #{description};

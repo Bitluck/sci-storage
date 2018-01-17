@@ -30,16 +30,16 @@
         select * from sc_article;
     </select>
     
-    <delete id = "delete" parameterType = "Article"> 
+    <delete id = "delete" parameterType = "model.Article"> 
         DELETE from sc_article WHERE A_ID = #{id}; 
     </delete> 
 
-    <insert id = "insert" parameterType = "Artice"> 
+    <insert id = "insert" parameterType = "model.Article"> 
         INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path))
             VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path});
     </insert> 
 
-    <update id = "update" parameterType = "Article"> 
+    <update id = "update" parameterType = "model.Article"> 
         UPDATE sc_article SET
           a_category_id = #{categoryId},
           a_title = #{title},

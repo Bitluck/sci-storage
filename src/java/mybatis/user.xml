@@ -25,16 +25,16 @@
         select * from sc_user;
     </select>
     
-    <delete id = "delete" parameterType = "User"> 
+    <delete id = "delete" parameterType = "model.User"> 
         DELETE from sc_user WHERE U_ID = #{id}; 
     </delete> 
 
-    <insert id = "insert" parameterType = "User"> 
+    <insert id = "insert" parameterType = "model.User"> 
        INSERT INTO sc_user (u_email, u_password, u_first_name, u_last_name)
             VALUES (#{email}, #{password}, #{firstName}, #{lastName});
     </insert> 
 
-    <update id = "update" parameterType = "User"> 
+    <update id = "update" parameterType = "model.User"> 
         UPDATE sc_user SET
           u_email = #{email}, 
           u_password = #{password},
