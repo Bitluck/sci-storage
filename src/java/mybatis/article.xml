@@ -18,8 +18,10 @@
         select * from sc_article where A_ID = #{id};
     </select>
     
-    <select id="selectByTitle" parameterType="String" resultMap="articleResult">
-        select * from sc_article WHERE a_title LIKE %#{part}%;
+    <select id="selectByTitle" parameterType="string" resultMap="articleResult">
+        <bind name="pattern" value="'%' + _parameter + '%'" />
+        select * from sc_article WHERE a_title LIKE #{pattern};
+        <!-- select * from sc_article WHERE a_title LIKE '%' || #{part} || '%'; -->
     </select>
     
     <select id="selectByCategory" parameterType="int" resultMap="articleResult">
@@ -34,8 +36,8 @@
         DELETE from sc_article WHERE A_ID = #{id}; 
     </delete> 
 
-    <insert id = "insert" parameterType = "model.Article"> 
-        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path))
+    <insert id = "insert" parameterType = "model.Article">
+        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path)
             VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path});
     </insert> 
 

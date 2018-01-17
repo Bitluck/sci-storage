@@ -14,23 +14,23 @@ import java.util.Objects;
  */
 public class Article {
     private int id;
+    private int ownerId;
     private int categoryId;
     private String title;
     private String authors;
     private Timestamp uploadDate;
-    private User owner;
     private String path;
 
     public Article() {
     }
     
-    public Article(int id, int categoryId, String title, String authors, Timestamp uploadDate, User owner, String path) {
+    public Article(int id,  int ownerId, int categoryId, String title, String authors, Timestamp uploadDate, String path) {
         this.id = id;
+        this.ownerId = ownerId;
         this.categoryId = categoryId;
         this.title = title;
         this.authors = authors;
         this.uploadDate = uploadDate;
-        this.owner = owner;
         this.path = path;
     }
 
@@ -66,12 +66,12 @@ public class Article {
         this.uploadDate = uploadDate;
     }
 
-    public User getOwner() {
-        return owner;
+    public int getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getPath() {
@@ -98,7 +98,7 @@ public class Article {
         hash = 71 * hash + Objects.hashCode(this.title);
         hash = 71 * hash + Objects.hashCode(this.authors);
         hash = 71 * hash + Objects.hashCode(this.uploadDate);
-        hash = 71 * hash + Objects.hashCode(this.owner);
+        hash = 71 * hash + Objects.hashCode(this.ownerId);
         hash = 71 * hash + Objects.hashCode(this.path);
         return hash;
     }
@@ -118,6 +118,9 @@ public class Article {
         if (this.id != other.id) {
             return false;
         }
+        if (this.ownerId != other.ownerId) {
+            return false;
+        }
         if (this.categoryId != other.categoryId) {
             return false;
         }
@@ -133,14 +136,11 @@ public class Article {
         if (!Objects.equals(this.uploadDate, other.uploadDate)) {
             return false;
         }
-        if (!Objects.equals(this.owner, other.owner)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", owner=" + owner + ", path=" + path + '}';
+        return "Article{" + "id=" + id + ", ownerId=" + ownerId + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", path=" + path + '}';
     }
 }
