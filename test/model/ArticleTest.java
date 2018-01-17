@@ -41,17 +41,19 @@ public class ArticleTest {
     @Test
     public void testCreateArticle() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, "title", "author1, author2", currentTimestamp, new User());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
         assertEquals(1, article.getId());
+        assertEquals(3, article.getCategoryId());
         assertEquals("title", article.getTitle());
         assertEquals("author1, author2", article.getAuthors());
         assertEquals(currentTimestamp, article.getUploadDate());
+        assertEquals("/path/1.pdf", article.getPath());
     }
     
     @Test
     public void testChangeArticleId() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, "title", "author1, author2", currentTimestamp, new User());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
         assertEquals(1, article.getId());
         
         article.setId(3);
@@ -61,7 +63,7 @@ public class ArticleTest {
     @Test
     public void testChangeArticleTitle() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, "title", "author1, author2", currentTimestamp, new User());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
         assertEquals("title", article.getTitle());
         
         article.setTitle("newTitle");
@@ -71,10 +73,30 @@ public class ArticleTest {
     @Test
     public void testChangeArticleAuthors() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, "title", "author1, author2", currentTimestamp, new User());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
         assertEquals("author1, author2", article.getAuthors());
         
         article.setAuthors("otherAuthor1, sameAuthor2");
         assertEquals("otherAuthor1, sameAuthor2", article.getAuthors());
+    }
+    
+    @Test
+    public void testChangeArticlePath() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
+        assertEquals("/path/1.pdf", article.getPath());
+        
+        article.setPath("/other_path/11.pdf");
+        assertEquals("/other_path/11.pdf", article.getPath());
+    }
+    
+    @Test
+    public void testChangeArticleCategory() {
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        Article article = new Article(1, 3, "title", "author1, author2", currentTimestamp, new User(), "/path/1.pdf");
+        assertEquals(3, article.getCategoryId());
+        
+        article.setCategoryId(7);
+        assertEquals(7, article.getCategoryId());
     }
 }

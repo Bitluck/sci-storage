@@ -1,12 +1,50 @@
-<?xml version="1.0" encoding="windows-1251"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+<mapper namespace="article">
+    <resultMap id="articleResult" type ="model.Article">
+        <result property="id" column="a_id" />
+        <result property="title" column="a_title" />
+        <result property="authors" column="a_authors" />
+        <result property="uploadDate" column="a_upload_date" />
+        <result property="ownerId" column="a_owner_id" />
+        <result property="categoryId" column="a_category_id" />
+        <result property="path" column="a_path" />
+    </resultMap>
+    
+    <select id="selectById" parameterType="int" resultMap="articleResult">
+        select * from sc_article where A_ID = #{id};
+    </select>
+    
+    <select id="selectByTitle" parameterType="String" resultMap="articleResult">
+        select * from sc_article WHERE a_title LIKE %#{part}%;
+    </select>
+    
+    <select id="selectByCategory" parameterType="int" resultMap="articleResult">
+        select * from sc_article WHERE a_category_id = #{categoryId};
+    </select>
+    
+    <select id="selectAll"  resultMap="articleResult">  
+        select * from sc_article;
+    </select>
+    
+    <delete id = "delete" parameterType = "Article"> 
+        DELETE from sc_article WHERE A_ID = #{id}; 
+    </delete> 
 
+    <insert id = "insert" parameterType = "Artice"> 
+        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path))
+            VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path});
+    </insert> 
 
- <root>
-	
- </root>
- 
+    <update id = "update" parameterType = "Article"> 
+        UPDATE sc_article SET
+          a_category_id = #{categoryId},
+          a_title = #{title},
+          a_authors = #{authors},
+          a_path = #{path},
+          WHERE A_ID = #{id}; 
+   </update>  
+</mapper>

@@ -1,12 +1,39 @@
-<?xml version="1.0" encoding="windows-1251"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+<mapper namespace="category">
+    <resultMap id="categoryResult" type ="model.Category">
+        <result property="id" column="c_id" />
+        <result property="name" column="c_name" />
+        <result property="description" column="c_description" />
+    </resultMap>
+    
+    <select id="selectById" parameterType="int" resultMap="categoryResult">  
+        select * from sc_category where C_ID = #{id};
+    </select>
+    
+    <select id="selectByName" parameterType="int" resultMap="categoryResult">  
+        select * from sc_category where C_NAME = #{name};
+    </select>
+    
+    <select id="selectAll"  resultMap="categoryResult">  
+        select * from sc_category;
+    </select>
+    
+    <delete id = "delete" parameterType = "Category"> 
+        DELETE from sc_category WHERE C_ID = #{id}; 
+    </delete> 
 
+    <insert id = "insert" parameterType = "Category"> 
+       INSERT INTO sc_category (c_name, c_description)
+            VALUES (#{name}, #{description});
+    </insert> 
 
- <root>
-	
- </root>
- 
+    <update id = "update" parameterType = "User"> 
+        UPDATE sc_category SET
+          c_name = #{name}, 
+          c_description = #{description};
+   </update>  
+</mapper>
