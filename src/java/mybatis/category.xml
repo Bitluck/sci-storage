@@ -14,7 +14,7 @@
         select * from sc_category where C_ID = #{id};
     </select>
     
-    <select id="selectByName" parameterType="int" resultMap="categoryResult">  
+    <select id="selectByName" parameterType="string" resultMap="categoryResult">  
         select * from sc_category where C_NAME = #{name};
     </select>
     
