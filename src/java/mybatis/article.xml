@@ -44,7 +44,7 @@
           a_category_id = #{categoryId},
           a_title = #{title},
           a_authors = #{authors},
-          a_path = #{path},
-          WHERE A_ID = #{id}; 
+          a_path = #{path}
+          WHERE A_ID = #{id};
    </update>  
 </mapper>

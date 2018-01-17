@@ -17,7 +17,7 @@
         select * from sc_user where U_ID = #{id};
     </select>
     
-    <select id="selectByEmail" parameterType="int" resultMap="userResult">  
+    <select id="selectByEmail" parameterType="string" resultMap="userResult">  
         select * from sc_user where U_EMAIL = #{email};
     </select>
     
@@ -39,7 +39,7 @@
           u_email = #{email}, 
           u_password = #{password},
           u_first_name = #{firstName},
-          u_last_name = #{lastName},
+          u_last_name = #{lastName}
           WHERE U_ID = #{id};
    </update>  
 </mapper>
