@@ -21,9 +21,9 @@ public class UserDAL extends BaseDAL {
     
     public List<User> selectAll() {
         SqlSession session = sqlSessionFactory.openSession();
-        List<User> allUserslist = session.selectList("user.selectAll");
+        List<User> allUsersList = session.selectList("user.selectAll");
         session.close();
-        return allUserslist;
+        return allUsersList;
     }
     
     public User selectById(int id) {

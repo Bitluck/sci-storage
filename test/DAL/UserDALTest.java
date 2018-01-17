@@ -47,7 +47,8 @@ public class UserDALTest {
     public void testSelectAll() {
         UserDAL dal = new UserDAL();
         List<User> list = dal.selectAll();
-        assertTrue(list != null && list.size() > 0);
+        assertTrue(list != null);
+        assertTrue(list.size() > 0);
     }
 
     /**
@@ -99,7 +100,6 @@ public class UserDALTest {
         UserDAL instance = new UserDAL();
         instance.insert(user);
         user = instance.selectByEmail("email1@email.com");
-        System.out.print(user);
         user.setFirstName("newFirstName");
         int expResult = 1;
         int result = instance.update(user);
@@ -112,9 +112,12 @@ public class UserDALTest {
      */
     @Test
     public void testDelete() {
-        User user = null;
+        Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
+        User user = new User(12, "email3@email.com", "$12$asd=", "First", "Last", currentTimestamp);
         UserDAL instance = new UserDAL();
-        int expResult = 0;
+        instance.insert(user);
+        user = instance.selectByEmail("email3@email.com");
+        int expResult = 1;
         int result = instance.delete(user);
         assertEquals(expResult, result);
     }
