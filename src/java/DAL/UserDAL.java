@@ -56,9 +56,9 @@ public class UserDAL extends BaseDAL {
         return count;
     }
     
-    public int delete(User user) {
+    public int delete(int id) {
         SqlSession session = sqlSessionFactory.openSession();
-        int count = session.delete("user.delete", user);
+        int count = session.delete("user.delete", id);
         session.commit();
         session.close();
         return count;

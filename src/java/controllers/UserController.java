@@ -40,7 +40,7 @@ public class UserController {
         return userDal.update(user);
     }
     
-    public int delete(User user) {
-        return userDal.delete(user);
+    public int delete(int id) {
+        return userDal.delete(id);
     }
 }

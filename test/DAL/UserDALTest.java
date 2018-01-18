@@ -86,7 +86,7 @@ public class UserDALTest {
         int expResult = 1;
         int result = instance.insert(user);
         User newUser = instance.selectByEmail("email@email.com");
-        instance.delete(newUser);
+        instance.delete(newUser.getId());
         assertEquals(expResult, result);
     }
 
@@ -103,7 +103,7 @@ public class UserDALTest {
         user.setFirstName("newFirstName");
         int expResult = 1;
         int result = instance.update(user);
-        instance.delete(user);
+        instance.delete(user.getId());
         assertEquals(expResult, result);
     }
 
@@ -118,7 +118,7 @@ public class UserDALTest {
         instance.insert(user);
         user = instance.selectByEmail("email3@email.com");
         int expResult = 1;
-        int result = instance.delete(user);
+        int result = instance.delete(user.getId());
         assertEquals(expResult, result);
     }
 }
