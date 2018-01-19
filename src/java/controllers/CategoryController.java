@@ -40,7 +40,7 @@ public class CategoryController {
         return categoryDal.update(category);
     }
     
-    public int delete(Category category) {
-        return categoryDal.delete(category);
+    public int delete(int id) {
+        return categoryDal.delete(id);
     }
 }

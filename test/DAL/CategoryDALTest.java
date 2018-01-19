@@ -88,7 +88,7 @@ public class CategoryDALTest {
         int expResult = 1;
         int result = instance.insert(category);
         Category newCategory = instance.selectByName("category3");
-        instance.delete(newCategory);
+        instance.delete(newCategory.getId());
         assertEquals(expResult, result);
     }
 
@@ -104,7 +104,7 @@ public class CategoryDALTest {
         category.setDescription("other info about this category");
         int expResult = 1;
         int result = instance.update(category);
-        instance.delete(category);
+        instance.delete(category.getId());
         assertEquals(expResult, result);
     }
 
@@ -118,7 +118,7 @@ public class CategoryDALTest {
         instance.insert(category);
         category = instance.selectByName("category5");
         int expResult = 1;
-        int result = instance.delete(category);
+        int result = instance.delete(category.getId());
         assertEquals(expResult, result);
     }
 }

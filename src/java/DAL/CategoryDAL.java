@@ -56,9 +56,9 @@ public class CategoryDAL extends BaseDAL {
         return count;
     }
     
-    public int delete(Category category) {
+    public int delete(int id) {
         SqlSession session = sqlSessionFactory.openSession();
-        int count = session.delete("category.delete", category);
+        int count = session.delete("category.delete", id);
         session.commit();
         session.close();
         return count;
