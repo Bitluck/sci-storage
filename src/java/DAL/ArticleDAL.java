@@ -63,9 +63,9 @@ public class ArticleDAL extends BaseDAL {
         return count;
     }
     
-    public int delete(Article article) {
+    public int delete(int id) {
         SqlSession session = sqlSessionFactory.openSession();
-        int count = session.delete("article.delete", article);
+        int count = session.delete("article.delete", id);
         session.commit();
         session.close();
         return count;

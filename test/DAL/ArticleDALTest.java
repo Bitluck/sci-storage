@@ -101,7 +101,7 @@ public class ArticleDALTest {
         int expResult = 1;
         int result = instance.insert(article);
         List<Article> newArticles = instance.selectByTitle("title0");
-        instance.delete(newArticles.get(0));
+        instance.delete(newArticles.get(0).getId());
         assertEquals(expResult, result);
     }
 
@@ -119,7 +119,7 @@ public class ArticleDALTest {
         article.setPath("/path/7.pdf");
         int expResult = 1;
         int result = instance.update(article);
-        instance.delete(article);
+        instance.delete(article.getId());
         assertEquals(expResult, result);
     }
 
@@ -135,7 +135,7 @@ public class ArticleDALTest {
         List<Article> articles = instance.selectByTitle("title0");
         article = articles.get(0);
         int expResult = 1;
-        int result = instance.delete(article);
+        int result = instance.delete(article.getId());
         assertEquals(expResult, result);
     }
 }

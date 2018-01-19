@@ -44,7 +44,7 @@ public class ArticleController {
         return articleDal.update(article);
     }
     
-    public int delete(Article article) {
-        return articleDal.delete(article);
+    public int delete(int id) {
+        return articleDal.delete(id);
     }
 }
