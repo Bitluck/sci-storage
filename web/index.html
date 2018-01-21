@@ -1,16 +1,95 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SciCatalog</title>
+        
+        <!-- Styles -->
+        <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="lib/css/bootstrap-reboot.min.css" rel="stylesheet">
+        <link href="lib/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="lib/css/style.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <!-- Controllers -->
+        <script src="controllers/UserController.js"></script>
+        <script src="controllers/ArticleController.js"></script>
+        <script src="controllers/CategoryController.js"></script>
+        
+        <!-- Services -->
+        <script src="services/UserService.js"></script>
+        <script src="services/ArticleService.js"></script>
+        <script src="services/CategoryService.js"></script>
+        
     </head>
     <body>
-        <div>TODO write content</div>
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="lib/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Catalog of science articles">
+                SciCatalog
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">All articles</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="views/login.html">Login</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        
+        <div id="body" class="container">
+            <div class="row">
+                <div id="category" class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                <div  id="articles" class="col-lg-8 col-md-8 col-sm-8 col-xs-8"></div>
+            </div>
+        </div>
+        
+        <div id="footer" class="container-fluid bg-secondary">
+            <div class="text-center center-block">
+                    <a href="https://github.com/Bitluck/sci-storage"><i id="social-gh" class="fa fa-github-square fa-3x social"></i></a>
+                    <a href="mailto:bitluck11@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            </div>
+       </div>
+        
+        <div id="scripts">
+            <!-- Scripts -->
+            <script src="lib/js/jquery.min.js"></script>
+            <script src="lib/js/bootstrap.min.js"></script>
+        </div>
+        <script>
+        $( window ).load(function() 
+        {
+            const articleController = new ArticleController();
+            articleController.getAllArticle();
+            /*const categoryController = new CategoryController();
+            categoryController.getAllCategory();*/
+        });
+        </script>
     </body>
 </html>
