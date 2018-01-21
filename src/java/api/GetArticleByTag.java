@@ -21,8 +21,8 @@ import model.Article;
  *
  * @author Администратор
  */
-@WebServlet(name = "GetAllArticle", urlPatterns = {"/GetAllArticle"})
-public class GetAllArticle extends HttpServlet {
+@WebServlet(name = "GetArticleByTag", urlPatterns = {"/GetArticleByTag"})
+public class GetArticleByTag extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,9 +36,10 @@ public class GetAllArticle extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String tag = request.getParameter("tag");
         try (PrintWriter out = response.getWriter()) {
             ArticleController articleController = new ArticleController();
-            List<Article> articles = articleController.getAllArticle();
+            List<Article> articles = articleController.getArticleByTag(tag);
             String json = JsonArticleMapper.toJSON(articles);
             out.println(json);
         }
@@ -80,7 +81,7 @@ public class GetAllArticle extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "GetAllArticle";
+        return "GetArticleByTag";
     }// </editor-fold>
 
 }

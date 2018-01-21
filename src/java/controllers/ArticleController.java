@@ -32,6 +32,10 @@ public class ArticleController {
         return articleDal.selectByTitle(part);
     }
     
+    public List<Article> getArticleByTag(String tag) {
+        return articleDal.selectByTitle(tag);
+    }
+    
     public List<Article> getArticleByCategory(int categoryId) {
         return articleDal.selectByCategory(categoryId);
     }

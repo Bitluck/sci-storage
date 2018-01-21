@@ -20,11 +20,12 @@ public class Article {
     private String authors;
     private Timestamp uploadDate;
     private String path;
+    private String tags;
 
     public Article() {
     }
     
-    public Article(int id,  int ownerId, int categoryId, String title, String authors, Timestamp uploadDate, String path) {
+    public Article(int id,  int ownerId, int categoryId, String title, String authors, Timestamp uploadDate, String path, String tags) {
         this.id = id;
         this.ownerId = ownerId;
         this.categoryId = categoryId;
@@ -32,6 +33,7 @@ public class Article {
         this.authors = authors;
         this.uploadDate = uploadDate;
         this.path = path;
+        this.tags = tags;
     }
 
     public int getId() {
@@ -82,6 +84,14 @@ public class Article {
         this.path = path;
     }
 
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
     public int getCategoryId() {
         return categoryId;
     }
@@ -93,13 +103,14 @@ public class Article {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 71 * hash + this.id;
-        hash = 71 * hash + this.categoryId;
-        hash = 71 * hash + Objects.hashCode(this.title);
-        hash = 71 * hash + Objects.hashCode(this.authors);
-        hash = 71 * hash + Objects.hashCode(this.uploadDate);
-        hash = 71 * hash + Objects.hashCode(this.ownerId);
-        hash = 71 * hash + Objects.hashCode(this.path);
+        hash = 53 * hash + this.id;
+        hash = 53 * hash + this.ownerId;
+        hash = 53 * hash + this.categoryId;
+        hash = 53 * hash + Objects.hashCode(this.title);
+        hash = 53 * hash + Objects.hashCode(this.authors);
+        hash = 53 * hash + Objects.hashCode(this.uploadDate);
+        hash = 53 * hash + Objects.hashCode(this.path);
+        hash = 53 * hash + Objects.hashCode(this.tags);
         return hash;
     }
 
@@ -133,6 +144,9 @@ public class Article {
         if (!Objects.equals(this.path, other.path)) {
             return false;
         }
+        if (!Objects.equals(this.tags, other.tags)) {
+            return false;
+        }
         if (!Objects.equals(this.uploadDate, other.uploadDate)) {
             return false;
         }
@@ -141,6 +155,6 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", ownerId=" + ownerId + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", path=" + path + '}';
+        return "Article{" + "id=" + id + ", ownerId=" + ownerId + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", path=" + path + ", tags=" + tags + '}';
     }
 }

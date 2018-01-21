@@ -96,7 +96,7 @@ public class ArticleDALTest {
     @Test
     public void testInsert() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(10, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/7.pdf");
+        Article article = new Article(10, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/7.pdf", "tag");
         ArticleDAL instance = new ArticleDAL();
         int expResult = 1;
         int result = instance.insert(article);
@@ -111,7 +111,7 @@ public class ArticleDALTest {
     @Test
     public void testUpdate() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/1.pdf");
+        Article article = new Article(1, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/1.pdf", "tag");
         ArticleDAL instance = new ArticleDAL();
         instance.insert(article);
         List<Article> articles = instance.selectByTitle("title0");
@@ -129,7 +129,7 @@ public class ArticleDALTest {
     @Test
     public void testDelete() {
         Timestamp currentTimestamp = new Timestamp(System.currentTimeMillis());
-        Article article = new Article(1, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/1.pdf");
+        Article article = new Article(1, 1, 2, "title0", "author1, author2", currentTimestamp, "/path/1.pdf", "tag");
         ArticleDAL instance = new ArticleDAL();
         instance.insert(article);
         List<Article> articles = instance.selectByTitle("title0");

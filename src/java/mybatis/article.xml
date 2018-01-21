@@ -12,6 +12,7 @@
         <result property="ownerId" column="a_owner_id" />
         <result property="categoryId" column="a_category_id" />
         <result property="path" column="a_path" />
+        <result property="tags" column="a_tags" />
     </resultMap>
     
     <select id="selectById" parameterType="int" resultMap="articleResult">
@@ -22,6 +23,11 @@
         <bind name="pattern" value="'%' + _parameter + '%'" />
         select * from sc_article WHERE a_title LIKE #{pattern};
         <!-- select * from sc_article WHERE a_title LIKE '%' || #{part} || '%'; -->
+    </select>
+    
+    <select id="selectByTag" parameterType="string" resultMap="articleResult">
+        <bind name="pattern" value="'%' + _parameter + '%'" />
+        select * from sc_article WHERE a_tags LIKE #{pattern};
     </select>
     
     <select id="selectByCategory" parameterType="int" resultMap="articleResult">

@@ -40,6 +40,13 @@ public class ArticleDAL extends BaseDAL {
         return articlesList;
     }
     
+    public List<Article> selectByTag(String tag) {
+        SqlSession session = sqlSessionFactory.openSession();
+        List<Article> articlesList = session.selectList("article.selectByTag", tag);
+        session.close();
+        return articlesList;
+    }
+    
     public List<Article> selectByCategory(int categoryId) {
         SqlSession session = sqlSessionFactory.openSession();
         List<Article> articles = session.selectList("article.selectByCategory", categoryId);
