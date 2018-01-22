@@ -20,12 +20,15 @@
         <script src="../controllers/UserController.js"></script>
         <script src="../controllers/ArticleController.js"></script>
         <script src="../controllers/CategoryController.js"></script>
+        <script src="../controllers/AuthenticationController.js"></script>
         
         <!-- Services -->
         <script src="../services/UserService.js"></script>
         <script src="../services/ArticleService.js"></script>
         <script src="../services/CategoryService.js"></script>
+        <script src="../services/AuthenticationService.js"></script>
         
+        <script src="../lib/js/user-auth.js"></script>
     </head>
     <body>
         <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,47 +39,57 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
+            <div class="container-fluid" id="navbarNav">
+              <ul class="nav navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link" href="/SciStorage">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">All articles</a>
+                  <a class="nav-link" href="articles.html">Articles</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Categories</a>
+                  <a class="nav-link" href="cateories.html">Categories</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item" id="add-article" style="visibility:hidden;">
+                  <a class="nav-link" href="add_article.html">Add article</a>
+                </li>
+                <li class="nav-item" id="search" style="visibility:hidden;">
                   <a class="nav-link" href="#">Search</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="register.html">Register</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="login.html">Login<span class="sr-only">(current)</span></a>
-                </li>
               </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active" id="register">
+                        <a class="nav-link" href="register.html">Register<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item" id="login">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="visibility:hidden;">
+                        <input onclick="logout()" type="submit" class="btn btn-default" value="Logout" style="background-color: #eee;"/>
+                    </li>
+                </ul>
             </div>
         </nav>
         
         <div id="body" class="container">
             <div class = "container">
                 <div class="wrapper">
-                    <form action="" method="post" name="Login_Form" class="form-signin">       
+                    <form action="" method="post" name="Register_Form" class="form-signin">
                         <h3 class="form-signin-heading">Sign Up</h3>
                         <hr class="colorgraph"><br>
 
-                        <input type="text" class="form-control" name="Eamil" placeholder="Username" required="" autofocus="" />
+                        <input type="text" class="form-control" name="Email" placeholder="Username" required="" autofocus="" />
                         <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>
                         <input type="password" class="form-control" name="ConfirmPassword" placeholder="Confirm password" required=""/>
                         <input type="text" class="form-control" name="FirstName" placeholder="First name" required=""/>
                         <input type="text" class="form-control" name="LastName" placeholder="Last name" required=""/>
 
-                        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+                        <!-- <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Register</button> -->
+                        <input onclick="register();" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Register" type="Submit" />
+                        or <a class="link" href="login.html">Login</a>
                     </form>			
                 </div>
             </div>
@@ -93,12 +106,14 @@
             <!-- Scripts -->
             <script src="../lib/js/jquery.min.js"></script>
             <script src="../lib/js/bootstrap.min.js"></script>
+            <script src="../lib/js/user-nav-menu.js"></script>
         </div>
         <script>
-        $( window ).load(function() 
+        window.onload = function() 
         {
-            const articleController = new ArticleController();
-        });
+            const shower = new MenuShower();
+            shower.show();
+        };
         </script>
     </body>
 </html>

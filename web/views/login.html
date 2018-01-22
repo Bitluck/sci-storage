@@ -17,40 +17,20 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         
         <!-- Controllers -->
-        <script src="../controllers/UserController.js"></script>
         <script src="../controllers/ArticleController.js"></script>
         <script src="../controllers/AuthenticationController.js"></script>
-        <script src="../controllers/CategoryController.js"></script>
+        <script src="../controllers/UserController.js"></script>
         
         <!-- Services -->
-        <script src="../services/UserService.js"></script>
         <script src="../services/ArticleService.js"></script>
         <script src="../services/AuthenticationService.js"></script>
-        <script src="../services/CategoryService.js"></script>
+        <script src="../services/UserService.js"></script>
         
-        <script>
-            function register(json) {
-                const authController = new AuthenticationController();
-                authController.register(json);
-            }
-            
-            function login() {
-                const authController = new AuthenticationController();
-                if(authController.login() == true) {
-                    location.replace("http://localhost:8084/SciStorage");
-                }
-            }
-            
-            function logout() {
-                const authController = new AuthenticationController();
-                authController.logout();
-                location.replace("http://localhost:8084/SciStorage");
-            }
-        </script>
+        <script src="../lib/js/user-auth.js"></script>
     </head>
     <body>
         <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/SciStorage">
                 <img src="../lib/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Catalog of science articles">
                 SciCatalog
             </a>
@@ -75,7 +55,7 @@
                   <a class="nav-link" href="add_article.html">Add article</a>
                 </li>
                 <li class="nav-item" id="search" style="visibility:hidden;">
-                  <a class="nav-link" href="#">Search</a>
+                  <a class="nav-link" href="search.html">Search</a>
                 </li>
               </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -100,10 +80,11 @@
                         <hr class="colorgraph"><br>
 
                         <input type="text" class="form-control" name="Email" placeholder="Username" required="" autofocus="" />
-                        <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>     		  
+                        <input type="password" class="form-control" name="Password" placeholder="Password" required="" />     		  
 
-                        <button onclick="login();" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
-                    </form>			
+                        <input onclick="login();" class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit" />
+                        or <a class="link" href="register.html">Register</a>
+                    </form>
                 </div>
             </div>
         </div>

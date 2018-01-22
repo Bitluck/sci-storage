@@ -14,8 +14,8 @@ class AuthenticationService {
         request.open('GET', 'http://localhost:8084/SciStorage/InsertUser?json='+json, false);
         request.send();
         if(request.status === 200) {
-            let user = JSON.parse(request.responseText);
-            return user;
+            let count = JSON.parse(request.responseText);
+            return count;
         }
         return null;
     }
