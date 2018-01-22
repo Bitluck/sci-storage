@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SciCatalog</title>
+        <title>Home - SciCatalog</title>
         
         <!-- Styles -->
         <link href="lib/css/bootstrap.min.css" rel="stylesheet">
@@ -17,49 +17,58 @@
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         
         <!-- Controllers -->
-        <script src="controllers/UserController.js"></script>
         <script src="controllers/ArticleController.js"></script>
-        <script src="controllers/CategoryController.js"></script>
+        <script src="controllers/AuthenticationController.js"></script>
+        <script src="controllers/UserController.js"></script>
         
         <!-- Services -->
-        <script src="services/UserService.js"></script>
         <script src="services/ArticleService.js"></script>
-        <script src="services/CategoryService.js"></script>
+        <script src="services/AuthenticationService.js"></script>
+        <script src="services/UserService.js"></script>
+        
+        <script src="lib/js/user-auth.js"></script>
         
     </head>
-    <body>
-        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+    <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/SciStorage">
                 <img src="lib/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Catalog of science articles">
                 SciCatalog
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
+            <div class="container-fluid" id="navbarNav">
+              <ul class="nav navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/SciStorage">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="views/add_article.html">All articles</a>
+                  <a class="nav-link" href="views/articles.html">Articles</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="views/categories.html">Categories</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="views/search.html">Search</a>
+                  <a class="nav-link" href="views/cateories.html">Categories</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="views/about.html">About</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="views/register.html">Register</a>
+                <li class="nav-item" id="add-article" style="visibility:hidden;">
+                  <a class="nav-link" href="views/add_article.html">Add article</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="views/login.html">Login</a>
+                <li class="nav-item" id="search" style="visibility:hidden;">
+                  <a class="nav-link" href="views/search.html">Search</a>
                 </li>
               </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item" id="register">
+                        <a class="nav-link" href="views/register.html">Register</a>
+                    </li>
+                    <li class="nav-item active" id="login">
+                        <a class="nav-link" href="views/login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="visibility:hidden;">
+                        <input onclick="logout()" type="submit" class="btn btn-default" id="logout-input" value="Logout" style="background-color: #eee;"/>
+                    </li>
+                </ul>
             </div>
         </nav>
         
@@ -81,15 +90,22 @@
             <!-- Scripts -->
             <script src="lib/js/jquery.min.js"></script>
             <script src="lib/js/bootstrap.min.js"></script>
+            <script src="lib/js/user-nav-menu.js"></script>
         </div>
         <script>
-        $( window ).load(function() 
+        window.onload = function() 
         {
+            const shower = new MenuShower();
+            shower.show();
+            
+            const authController = new AuthenticationController();
+            
+            let logoutName = document.getElementById("logout-input").value + ', ' + authController.getCookie('email');
+            document.getElementById("logout-input").value = logoutName;
+            
             const articleController = new ArticleController();
             articleController.getAllArticle();
-            /*const categoryController = new CategoryController();
-            categoryController.getAllCategory();*/
-        });
+        };
         </script>
     </body>
 </html>

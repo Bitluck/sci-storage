@@ -15,6 +15,16 @@ class UserService {
         }
     }
     
+    getIdByEmail(email) {
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://localhost:8084/SciStorage/GetUserByEmail?email=' + email, false);
+        request.send();
+        if(request.status === 200) {
+            const user = JSON.parse(request.responseText);
+            return user.id;
+        }
+    }
+    
     insertUser(user) {
         var request = new XMLHttpRequest();
         request.open('POST', 'http://localhost:8084/SciStorage/InsertUser?', false);

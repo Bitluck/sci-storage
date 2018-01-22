@@ -43,8 +43,8 @@
     </delete> 
 
     <insert id = "insert" parameterType = "model.Article">
-        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path)
-            VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path});
+        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path, a_tags)
+            VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path}, #{tags});
     </insert> 
 
     <update id = "update" parameterType = "model.Article"> 
@@ -52,7 +52,8 @@
           a_category_id = #{categoryId},
           a_title = #{title},
           a_authors = #{authors},
-          a_path = #{path}
+          a_path = #{path},
+          a_tags = #{tags}
           WHERE A_ID = #{id};
    </update>  
 </mapper>
