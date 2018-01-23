@@ -33,7 +33,7 @@ public class ArticleController {
     }
     
     public List<Article> getArticleByTag(String tag) {
-        return articleDal.selectByTitle(tag);
+        return articleDal.selectByTag(tag);
     }
     
     public List<Article> getArticleByCategory(int categoryId) {
