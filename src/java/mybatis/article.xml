@@ -13,6 +13,7 @@
         <result property="categoryId" column="a_category_id" />
         <result property="path" column="a_path" />
         <result property="tags" column="a_tags" />
+        <result property="annotation" column="a_annotation" />
     </resultMap>
     
     <select id="selectById" parameterType="int" resultMap="articleResult">
@@ -22,7 +23,6 @@
     <select id="selectByTitle" parameterType="string" resultMap="articleResult">
         <bind name="pattern" value="'%' + _parameter + '%'" />
         select * from sc_article WHERE a_title LIKE #{pattern};
-        <!-- select * from sc_article WHERE a_title LIKE '%' || #{part} || '%'; -->
     </select>
     
     <select id="selectByTag" parameterType="string" resultMap="articleResult">
@@ -43,8 +43,8 @@
     </delete> 
 
     <insert id = "insert" parameterType = "model.Article">
-        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path, a_tags)
-            VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path}, #{tags});
+        INSERT INTO sc_article (a_title, a_authors, a_owner_id, a_category_id, a_path, a_tags, a_annotation)
+            VALUES (#{title}, #{authors}, #{ownerId}, #{categoryId}, #{path}, #{tags}, #{annotation});
     </insert> 
 
     <update id = "update" parameterType = "model.Article"> 
@@ -53,7 +53,8 @@
           a_title = #{title},
           a_authors = #{authors},
           a_path = #{path},
-          a_tags = #{tags}
+          a_tags = #{tags},
+          a_annotation = #{annotation}
           WHERE A_ID = #{id};
    </update>  
 </mapper>

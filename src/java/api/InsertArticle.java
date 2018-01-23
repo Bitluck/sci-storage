@@ -160,6 +160,9 @@ public class InsertArticle extends HttpServlet {
             case "tags":
                 article.setTags(item.getString());
                 break;
+            case "annotation":
+                article.setAnnotation(item.getString());
+                break;
         }
         return article;
         //System.out.println(item.getFieldName() + ": " + item.getString());

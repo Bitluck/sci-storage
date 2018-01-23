@@ -21,11 +21,12 @@ public class Article {
     private Timestamp uploadDate;
     private String path;
     private String tags;
+    private String annotation;
 
     public Article() {
     }
     
-    public Article(int id,  int ownerId, int categoryId, String title, String authors, Timestamp uploadDate, String path, String tags) {
+    public Article(int id,  int ownerId, int categoryId, String title, String authors, Timestamp uploadDate, String path, String tags, String annotation) {
         this.id = id;
         this.ownerId = ownerId;
         this.categoryId = categoryId;
@@ -34,6 +35,7 @@ public class Article {
         this.uploadDate = uploadDate;
         this.path = path;
         this.tags = tags;
+        this.annotation = annotation;
     }
 
     public int getId() {
@@ -100,17 +102,26 @@ public class Article {
         this.categoryId = categoryId;
     }
 
+    public String getAnnotation() {
+        return annotation;
+    }
+
+    public void setAnnotation(String annotation) {
+        this.annotation = annotation;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + this.id;
-        hash = 53 * hash + this.ownerId;
-        hash = 53 * hash + this.categoryId;
-        hash = 53 * hash + Objects.hashCode(this.title);
-        hash = 53 * hash + Objects.hashCode(this.authors);
-        hash = 53 * hash + Objects.hashCode(this.uploadDate);
-        hash = 53 * hash + Objects.hashCode(this.path);
-        hash = 53 * hash + Objects.hashCode(this.tags);
+        int hash = 5;
+        hash = 47 * hash + this.id;
+        hash = 47 * hash + this.ownerId;
+        hash = 47 * hash + this.categoryId;
+        hash = 47 * hash + Objects.hashCode(this.title);
+        hash = 47 * hash + Objects.hashCode(this.authors);
+        hash = 47 * hash + Objects.hashCode(this.uploadDate);
+        hash = 47 * hash + Objects.hashCode(this.path);
+        hash = 47 * hash + Objects.hashCode(this.tags);
+        hash = 47 * hash + Objects.hashCode(this.annotation);
         return hash;
     }
 
@@ -147,6 +158,9 @@ public class Article {
         if (!Objects.equals(this.tags, other.tags)) {
             return false;
         }
+        if (!Objects.equals(this.annotation, other.annotation)) {
+            return false;
+        }
         if (!Objects.equals(this.uploadDate, other.uploadDate)) {
             return false;
         }
@@ -155,6 +169,6 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" + "id=" + id + ", ownerId=" + ownerId + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", path=" + path + ", tags=" + tags + '}';
+        return "Article{" + "id=" + id + ", ownerId=" + ownerId + ", categoryId=" + categoryId + ", title=" + title + ", authors=" + authors + ", uploadDate=" + uploadDate + ", path=" + path + ", tags=" + tags + ", annotation=" + annotation + '}';
     }
 }
