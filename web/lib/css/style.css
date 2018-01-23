@@ -11,8 +11,8 @@
 /* Login
 ====================*/
 .wrapper {    
-	margin-top: 30px;
-	margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .form-signin {
@@ -35,11 +35,11 @@
   padding: 10px;
 }
 
-.form-control-description {
+.form-control-annotation {
   position: relative;
   font-size: 16px;
   height: 100px;
-  width: 338px;
+  width: 338px !important;
   padding: 10px;
 }
 

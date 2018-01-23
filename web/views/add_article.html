@@ -76,23 +76,23 @@
         
         <div id="body" class="container">
             <div class = "container">
-                <div class="wrapper">
+                <div class="wrapper" style="margin-top: 10px; margin-bottom: 10px;">
                     <form action="http://localhost:8084/SciStorage/InsertArticle" method="post" name="Add_Form" class="form-signin" enctype="multipart/form-data" style="padding-bottom: 21px">
                         <h3 class="form-signin-heading">Upload Article</h3>
                         <hr class="colorgraph"><br>
                     
-                        <input name="title" type="text" class="form-control" placeholder="title" required="" autofocus="" />
-                        <input name="authors" type="text" class="form-control" placeholder="authors" required="" autofocus="" />
-                        <input name="tags" type="text" class="form-control" placeholder="tags" required="" autofocus="" />
+                        <input name="title" type="text" class="form-control" placeholder="Title" required="" autofocus="" />
+                        <input name="authors" type="text" class="form-control" placeholder="Authors" required="" autofocus="" />
+                        <input name="tags" type="text" class="form-control" placeholder="Tags" required="" autofocus="" />
                         
                         <select name="category" class="form-control" id="category-select">
                             <option value="-1">Select category</option>
                         </select>
                         
-                        <!-- <textarea name="description" class="form-control-description" placeholder="description" required=""></textarea> -->
+                        <textarea name="annotation" class="form-control-annotation" placeholder="Annotation" required=""></textarea>
                         <input name="data" type="file" class="form-control" accept="application/pdf,application/x-pdf" required="" />
                         <input onclick="upload();" class="btn btn-lg btn-primary btn-block" name="Submit" value="Add article" type="Submit" />
-                        <input name="ownerId" id="owner-id" type="text" class="form-control" placeholder="owner" required="" autofocus="" style="visibility:hidden; margin-bottom: 0px; height: 0px !important;"/>
+                        <input name="ownerId" id="owner-id" type="text" class="form-control" placeholder="Owner" required="" autofocus="" style="visibility:hidden; margin-bottom: 0px; height: 0px !important;"/>
                     </form>
                 </div>
             </div>

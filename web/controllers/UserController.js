@@ -19,7 +19,7 @@ class UserController {
                 email: list[i].email,
                 firstName: list[i].firstName,
                 lastName: list[i].lastName
-            }
+            };
             html += "<div class='row'>"+
                     "<div class='col-sm-12 col-md-12'>"+
                      " <div class='thumbnail' onclick='userClicked("+user.id+")'>"+
