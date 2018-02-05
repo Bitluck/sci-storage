@@ -1,4 +1,4 @@
-# sci-catalog
+# sci-storage
 
 [![GitHub license][license-badge]][license-badge-url]
 [![GitHub repo size in bytes][reposize-badge]][repo-url]
