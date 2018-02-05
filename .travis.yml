@@ -1,0 +1,10 @@
+language: java
+sudo: false
+dist: trusty
+jdk: oraclejdk8
+install: ant deps
+script:
+  - ant test
+branches:
+  only:
+  - master
