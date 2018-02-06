@@ -56,7 +56,7 @@ public class DownloadArticle extends HttpServlet {
             response.setContentLength((int) downloadFile.length());
             
             String headerKey = "Content-Disposition";
-            String headerValue = String.format("attachment; filename=\"%s\"", URLEncoder.encode(downloadFile.getName(), "UTF-8"));
+            String headerValue = String.format("attachment; filename=\"%s\"", URLEncoder.encode(downloadFile.getName().substring(downloadFile.getName().indexOf('_') + 1), "UTF-8"));
             //System.out.println(headerValue);
             response.setHeader(headerKey, headerValue);
             

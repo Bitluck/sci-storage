@@ -97,4 +97,8 @@ class ArticleService {
             return filteredArticles;
         }
     }
+    
+    downloadArticle(filename) {
+        window.location.href = `http://localhost:8084/SciStorage/DownloadArticle?filename=${filename}`;
+    }
 }

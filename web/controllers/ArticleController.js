@@ -41,6 +41,10 @@ class ArticleController {
         element.innerHTML = html;
     }
     
+    articleClicked(filename) {
+        return this.articleService.downloadArticle(filename);
+    }
+    
     generateArticlesBlock(list) {
         let html = "";
         html += "<div>"+
@@ -57,11 +61,11 @@ class ArticleController {
                 ownerName: list[i].ownerName,
                 tags: list[i].tags
             };
-            html += "<div class='row'>"+
+            /*html += "<div class='row'>"+
                     "<div class='col-sm-12 col-md-12'>"+
                      " <div class='thumbnail' onclick='articleClicked("+article.id+")'>"+
                        " <div class='caption'>"+
-                          "<a href=\"localhost:8084/SciStorage/DownloadArticle?filename="+ article.path +"\"><h3>"+article.title+"</h3></a>"+
+                          "<a href=\"http://localhost:8084/SciStorage/DownloadArticle?filename="+ article.path +"\"><h3>"+article.title+"</h3></a>"+
                           " <p>Authors: "+article.authors+"</p>"+
                           " <p style=\"word-break: break-all;\">Annotation: "+article.annotation+"</p>"+
                           " <p align='right'>"+article.uploadDate+"</p>"+
@@ -70,7 +74,22 @@ class ArticleController {
                       "</div>"+
                      " </div>"+
                     "</div>"+
-                "</div>";
+                "</div>";*/
+                
+            html += "<div class=\"card\">"+
+                        "<h3 class=\"card-header\">" + article.title + "</h3>"+
+                        "<div class=\"card-block\">"+
+                            "<h4 class=\"card-title\">Authors: "+article.authors+"</h4>"+
+                            "<p class=\"card-text annotation\">Annotation: "+article.annotation+"</p>"+
+                            "<p class=\"card-text uploadDate\">Upload: "+article.uploadDate+"</p>"+
+                            "<p class=\"card-text ownerName\">Owner: "+article.ownerName+"</p>"+
+                            "<p class=\"card-text tags\">Tags: "+article.tags+"</p>"+
+                            "<a class=\"btn btn-primary\" onclick=\"articleClicked('"+article.path+"');\">"+
+                                "Download"+
+                            "</a>"+
+                        "</div>"+
+                    "</div>";
+                
         }
         html += "";
         return html;
