@@ -5,9 +5,10 @@
 
 Web catalog of scientific articles
 
-======
 
-### For application work need:
+### For application work need
+-----------------------------
+
 *   Create directory 'SciStorage\build\web\upload'
 *   Use dependencies:
     *   `mybatis`: [mybatis-3.4.5](http://mvnrepository.com/artifact/org.mybatis/mybatis/3.4.5)
