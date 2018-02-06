@@ -102,6 +102,12 @@ body {
     max-width: none;
 }
 
+.copyleft {
+    float: left;
+    margin-top: 10px;
+    padding: 5px;
+}
+
 /* Nav menu
 ====================*/
 #menu {

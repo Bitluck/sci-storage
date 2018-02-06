@@ -99,6 +99,9 @@
         </div>
         
         <div id="footer" class="container-fluid bg-secondary">
+            <div class="copyleft">
+                (c) 2018 OmSTU, All right preserved
+            </div>
             <div class="text-center center-block">
                     <a href="https://github.com/Bitluck/sci-storage"><i id="social-gh" class="fa fa-github-square fa-3x social"></i></a>
                     <a href="mailto:bitluck11@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
@@ -120,9 +123,6 @@
             const authController = new AuthenticationController();
             let logoutName = document.getElementById("logout-input").value + ', ' + authController.getCookie('email');
             document.getElementById("logout-input").value = logoutName;
-            
-            /*const articleController = new ArticleController();
-            articleController.getAllArticle();*/
         };
         </script>
     </body>
