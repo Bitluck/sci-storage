@@ -17,6 +17,10 @@ class MenuShower {
             if(document.getElementById("auth-links")) {
                 document.getElementById("auth-links").style.visibility = 'hidden';
             }
+            
+            if(document.getElementById("action-links")) {
+                document.getElementById("action-links").style.visibility = 'visible';
+            }
         }
     }
 }

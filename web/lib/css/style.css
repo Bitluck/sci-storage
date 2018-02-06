@@ -186,7 +186,34 @@ body {
     margin: 15px;
 }
 
-.links > a {
+.home-info > h3 {
+    text-shadow: #000 0 0 2px;
+}
+
+.home-info > p {
+    color: #000;
+    max-width: 350px;
+    text-align: justify;
+    text-indent: 25px;
+    text-shadow: #fff 0 0 2px;
+    font-weight: bold;
+    margin: auto;
+    margin-right: 0px;
+    font-size: 18px;
+}
+
+.links, .links-after-login {
+    text-shadow: #fff 0 0 2px;
+    font-size: 18px;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.links > a, .links-after-login > a {
     display: inline-block;
 }
 
