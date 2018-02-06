@@ -13,6 +13,10 @@ class MenuShower {
 
             document.getElementById("register").style.visibility = 'hidden';
             document.getElementById("login").style.visibility = 'hidden';
+            
+            if(document.getElementById("auth-links")) {
+                document.getElementById("auth-links").style.visibility = 'hidden';
+            }
         }
     }
 }

@@ -108,6 +108,88 @@ body {
     max-width: none;
 }
 
+/* About
+====================*/
+.about {
+    margin: 10px;
+}
+
+.mission, .site-authors {
+    padding: 15px;
+}
+
+/* Cards
+====================*/
+.card, .backend-developer {
+    margin: 5px;
+    
+    /*-webkit-transform: scale(0.999);*/
+     /* Browser Variations: */
+     
+    /*-moz-transform: scale(0.999);
+    -o-transform: scale(0.999);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;*/
+}
+
+.card-block {
+    padding: 5px;
+}
+
+.card-block > .btn-primary {
+    margin: 10px;
+    color: #fff !important;
+}
+
+.uploadDate, .tags {
+    float: right;
+}
+
+.card:hover, .backend-developer:hover {
+    /*-webkit-transform: scale(1.0001);
+    -moz-transform: scale(1.0001);
+    -o-transform: scale(1.0001);*/
+    border: 1px solid #333;
+}
+
+/* Home
+====================*/
+.site-description, home-img {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 0;
+    z-index: -1;
+}
+
+.home-img {
+    background:url(../img/statyi.jpg) no-repeat center;
+    background-size:100%;
+    height: 100%;
+}
+
+.home-img-main {
+    width: 100%;
+    z-index: -1;
+}
+
+.home-info {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 10;
+    color: #fff;
+    text-align: right;
+    margin: 15px;
+}
+
+.links > a {
+    display: inline-block;
+}
+
 /* Social
 ====================*/
 .social:hover {
