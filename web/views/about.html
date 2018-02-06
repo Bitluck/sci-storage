@@ -1,16 +1,138 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>About - SciCatalog</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Styles -->
+        <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../lib/css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="../lib/css/bootstrap-reboot.min.css" rel="stylesheet">
+        <link href="../lib/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="../lib/css/style.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <!-- Controllers -->
+        <script src="../controllers/ArticleController.js"></script>
+        <script src="../controllers/AuthenticationController.js"></script>
+        <script src="../controllers/UserController.js"></script>
+        
+        <!-- Services -->
+        <script src="../services/ArticleService.js"></script>
+        <script src="../services/AuthenticationService.js"></script>
+        <script src="../services/UserService.js"></script>
+        
+        <script src="../lib/js/user-auth.js"></script>
+        <script src="../lib/js/article.js"></script>
+        
     </head>
     <body>
-        <div>TODO write content</div>
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/SciStorage">
+                <img src="../lib/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="Catalog of science articles">
+                SciCatalog
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container-fluid" id="navbarNav">
+              <ul class="nav navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/SciStorage">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" id="add-article" style="visibility:hidden;">
+                  <a class="nav-link" href="add_article.html">Add article</a>
+                </li>
+                <li class="nav-item" id="search" style="visibility:hidden;">
+                  <a class="nav-link" href="search.html">Search</a>
+                </li>
+                <li class="nav-item" id="add-article" style="visibility:hidden;">
+                  <a class="nav-link" href="views/add_article.html">Add article</a>
+                </li>
+                <li class="nav-item" id="search" style="visibility:hidden;">
+                  <a class="nav-link" href="views/search.html">Search</a>
+                </li>
+              </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item" id="register">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item" id="login">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item" id="logout" style="visibility:hidden;">
+                        <input onclick="logout();" type="submit" class="btn btn-default" id="logout-input" value="Logout" style="background-color: #eee;"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div id="body" class="container">
+            <div class = "container">
+                <h3 class="about">About us</h3>
+                <div class="mission">
+                    <h4>Mission</h4>
+                    <p>Create catalog of science articles.</p>
+                </div>
+                <div class="site-authors">
+                    <h4>Project authors</h4>
+                    <div class="card card-outline-success mb-3 text-center backend-developer">
+                        <div class="card-block">
+                            <img src="../lib/img/back.png" width="150" height="75" class="">
+                            <a class="nav-link" href="mailto:bitluck11@gmail.com">Andrei Schukin</a>
+                        </div>
+                    </div>
+
+                    <div class="backend-developer">
+
+                    </div>
+
+                    <div class="card card-outline-success mb-3 text-center frontend-developer">
+                        <div class="card-block">
+                            <img src="../lib/img/front.png" width="150" height="75" class="">
+                        <a class="nav-link" href="mailto:dariy.olesya95@gmail.com">Olesya Dariy</a>
+                        </div>
+                    </div>
+
+                    <div class="frontend-developer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="footer" class="container bg-secondary">
+            <div class="text-center center-block">
+                <a href="https://github.com/Bitluck/sci-storage"><i id="social-gh" class="fa fa-github-square fa-3x social"></i></a>
+                <a href="mailto:bitluck11@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+            </div>
+       </div>
+        
+        <div id="scripts">
+            <!-- Scripts -->
+            <script src="../lib/js/jquery.min.js"></script>
+            <script src="../lib/js/bootstrap.min.js"></script>
+            <script src="../lib/js/popper.min.js"></script>
+            <script src="../lib/js/user-nav-menu.js"></script>
+        </div>
+        <script>
+            window.onload = function() 
+            {
+                const shower = new MenuShower();
+                shower.show();
+
+                const authController = new AuthenticationController();
+                let logoutName = document.getElementById("logout-input").value + ', ' + authController.getCookie('email');
+                document.getElementById("logout-input").value = logoutName;
+
+                /*const articleController = new ArticleController();
+                articleController.getAllArticle();*/
+            };
+        </script>
     </body>
 </html>
