@@ -6,8 +6,8 @@
 Web catalog of scientific articles
 
 
-For application work need
--------------------------
+For application work needs
+--------------------------
 
 *   Create directory 'SciStorage\build\web\upload'
 *   Use dependencies:
