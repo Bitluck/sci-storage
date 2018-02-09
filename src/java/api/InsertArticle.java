@@ -96,7 +96,7 @@ public class InsertArticle extends HttpServlet {
         
         ServletFileUpload upload = new ServletFileUpload(factory);
         
-        upload.setSizeMax(1024 * 1024 * 10);
+        upload.setSizeMax(1024 * 1024 * 10); // 10Mb
         
         try {
             Article article = new Article();
@@ -119,12 +119,6 @@ public class InsertArticle extends HttpServlet {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return;
         }
-        
-        /*InputStreamReader reader = new InputStreamReader(request.getInputStream());
-            int c;
-            while ((c=reader.read())>=0) {
-                    response.getWriter().print((char)c);
-        }*/
     }
     
     private String processUploadFile(FileItem item) throws Exception {

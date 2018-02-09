@@ -71,7 +71,7 @@
         <div id="body" class="container">
             <div class = "container">
                 <div class="wrapper" style="margin-top: 10px; margin-bottom: 10px;">
-                    <form action="http://localhost:8084/SciStorage/InsertArticle" method="post" name="Add_Form" class="form-signin" enctype="multipart/form-data" style="padding-bottom: 21px">
+                    <form action="" method="post" name="Add_Form" id="form-signin" class="form-signin" enctype="multipart/form-data" style="padding-bottom: 21px">
                         <h3 class="form-signin-heading">Upload Article</h3>
                         <hr class="colorgraph"><br>
                     
@@ -85,7 +85,7 @@
                         
                         <textarea name="annotation" class="form-control-annotation" placeholder="Annotation" required=""></textarea>
                         <input name="data" type="file" class="form-control" accept="application/pdf,application/x-pdf" required="" />
-                        <input onclick="upload();" class="btn btn-lg btn-primary btn-block" name="Submit" value="Add article" type="Submit" />
+                        <input onclick="submitData();" class="btn btn-lg btn-primary btn-block" name="Submit" value="Add article" type="Submit" />
                         <input name="ownerId" id="owner-id" type="text" class="form-control" placeholder="Owner" required="" autofocus="" style="visibility:hidden; margin-bottom: 0px; height: 0px !important;"/>
                     </form>
                 </div>
@@ -133,6 +133,39 @@
                 categorySelector.appendChild(optionElement);
             }
         };
+        
+        submitData = function() {
+            var form = $('#form-signin')[0];
+            var data = new FormData(form);
+            
+            $.ajax({
+                type: 'post',
+                enctype: 'multipart/form-data',
+                url: 'http://localhost:8084/SciStorage/InsertArticle',
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false/*,
+                success: function(data) {
+                    alert("Success: Article added.");
+                    console.log('data', data);
+                },
+                error: function(e) {
+                    alert("Oops! Error during article adding.");
+                    console.log('error: ', JSON.stringify(e));
+                }*/
+            }).done( function(result) {
+                if (+result === 1) {
+                    alert("Success: Article added.");
+                } else if(+result === 0) {
+                    alert("Oops! Error during article adding.");
+                } else {
+                    alert("Oops! Unknown error.");
+                }
+                
+                return;
+            });
+        }
         </script>
     </body>
 </html>
